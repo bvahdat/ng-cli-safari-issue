@@ -9,9 +9,12 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <script type="text/javascript">
-    console.log('safari will now load both the es5 as well as es2015 bundles!');
+  <script type="module">
+    console.log('type module');
   </script>
-  <app-root></app-root>
+  <script nomodule>
+    console.log('type no module');
+  </script>
+<app-root></app-root>
 </body>
 </html>
