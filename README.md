@@ -1,3 +1,11 @@
+## How to reproduce the issue on Safari (12.1.2)
+
+Run `ng build --prod` and then navigate to the folder `./dist/ng-cli-safari-issue`. Serve this folder over `http` using your favorite http server, for example using the npm packages `http-serve` or `live-serve`. Open the site on Safari and inside the Web Inspector window look at the Network tab about the JS files being loaded. As you see the `ES5` as well as the `ES2015` bundles have been loaded altogether as shown by the screenshot below:
+
+![](safari-issue.png)
+
+One possible way to remedy this behaviour under Safari seems to be through [through this commit](https://github.com/bvahdat/ng-cli-safari-issue/commit/a82a626538450c1eeb666fd685ab0bc493c0b4f0). That's duplicating all the `script` tags inside a given `index.html` using the `type=module` and `nomodule` attributes. 
+
 # NgCliSafariIssue
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
